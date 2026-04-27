@@ -90,4 +90,29 @@ public class AssignmentController {
     public ResponseEntity<List<Assignment>> getAllAssignments() {
         return ResponseEntity.ok(assignmentService.getAllAssignments());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAssignment(@PathVariable Long id, Authentication auth) {
+        try {
+            Assignment existing = assignmentService.getAssignment(id);
+            if (existing == null) {
+                return ResponseEntity.status(404).body(Map.of("message", "Assignment not found"));
+            }
+
+            // Verify the teacher owns this assignment before allowing deletion
+            if (auth != null && auth.getName() != null) {
+                Optional<User> userOpt = userRepository.findByEmail(auth.getName());
+                if (userOpt.isPresent() && existing.getCreatedBy() != null) {
+                    if (!existing.getCreatedBy().getId().equals(userOpt.get().getId())) {
+                        return ResponseEntity.status(403).body(Map.of("message", "You are not authorized to delete this assignment"));
+                    }
+                }
+            }
+
+            assignmentRepository.deleteById(id);
+            return ResponseEntity.ok(Map.of("message", "Assignment deleted successfully"));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("message", "Error deleting assignment", "error", e.getMessage()));
+        }
+    }
 }

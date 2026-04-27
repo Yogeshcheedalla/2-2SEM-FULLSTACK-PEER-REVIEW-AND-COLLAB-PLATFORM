@@ -189,6 +189,29 @@ const Teacher = () => {
     }
   };
 
+  const handleDeleteAssignment = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this assignment? This cannot be undone.")) {
+      return;
+    }
+
+    try {
+      const res = await apiFetch(`/assignments/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) {
+        alert("Error deleting assignment");
+        return;
+      }
+
+      alert("Assignment deleted successfully!");
+      loadAssignments();
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert("Error connecting to server");
+    }
+  };
+
   const loadSubmissions = async (assignmentId) => {
     try {
       const res = await apiFetch(
@@ -311,6 +334,13 @@ const Teacher = () => {
                       onClick={() => handleEditClick(assignment)}
                     >
                       Edit
+                    </button>
+                    <button
+                      className="submit-grade-btn"
+                      style={{ padding: "6px 12px", background: "#fee2e2", color: "#b91c1c", fontWeight: "600", fontSize: "0.875rem" }}
+                      onClick={() => handleDeleteAssignment(assignment.id)}
+                    >
+                      Delete
                     </button>
                     <button
                       className="grade-btn"
