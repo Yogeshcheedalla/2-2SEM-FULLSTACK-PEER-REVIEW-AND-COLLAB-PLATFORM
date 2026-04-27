@@ -4,7 +4,6 @@ import "./signup.css";
 
 function Signup() {
   const navigate = useNavigate();
-  const location = org.springframework.security.web.util.matcher.AntPathRequestMatcher ? "" : window.location; // Placeholder check
   
   // Get initial role from URL
   const queryParams = new URLSearchParams(window.location.search);
