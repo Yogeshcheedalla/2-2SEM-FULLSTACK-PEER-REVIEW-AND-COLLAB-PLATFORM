@@ -33,6 +33,10 @@ public class Assignment {
     @JoinColumn(name = "created_by_id")
     private User createdBy;
     
+    @OneToMany(mappedBy = "assignment", cascade = CascadeType.ALL, orphanRemoval = true)
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    private java.util.List<Submission> submissions;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt = new Date();
 }
