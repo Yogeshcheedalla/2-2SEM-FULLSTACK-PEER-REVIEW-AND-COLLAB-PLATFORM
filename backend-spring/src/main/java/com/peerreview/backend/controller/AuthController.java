@@ -106,6 +106,9 @@ public class AuthController {
                 .orElseThrow(() -> new RuntimeException("Refresh token is not in database!"));
     }
 
+    @org.springframework.beans.factory.annotation.Value("${frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+
     @GetMapping("/oauth2-success")
     public void oauth2Success(jakarta.servlet.http.HttpServletRequest request, 
                              jakarta.servlet.http.HttpServletResponse response,
@@ -126,8 +129,9 @@ public class AuthController {
         // Clear auth cookies
         httpCookieOAuth2AuthorizationRequestRepository.removeAuthorizationRequestCookies(request, response);
 
-        String redirectUrl = String.format("http://localhost:5173/login?token=%s&refreshToken=%s&userId=%d&role=%s&userName=%s",
-            token, refreshToken.getToken(), user.getId(), user.getRole(), java.net.URLEncoder.encode(user.getName(), "UTF-8"));
+        // Use the frontendUrl from environment variables
+        String redirectUrl = String.format("%s/login?token=%s&refreshToken=%s&userId=%d&role=%s&userName=%s",
+            frontendUrl, token, refreshToken.getToken(), user.getId(), user.getRole(), java.net.URLEncoder.encode(user.getName(), "UTF-8"));
         
         response.sendRedirect(redirectUrl);
     }
