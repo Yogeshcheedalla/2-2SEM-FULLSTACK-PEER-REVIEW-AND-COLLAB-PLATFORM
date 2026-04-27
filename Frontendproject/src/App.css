@@ -1,0 +1,21 @@
+/* Fix dark-mode override on input/select */
+input,
+textarea,
+select {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ccc !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #6a7dd6 !important;
+  background-color: #ffffff !important;
+  color: #000 !important;
+}

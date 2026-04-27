@@ -1,0 +1,349 @@
+:root {
+  --primary-teacher: #00a854;
+  --secondary-teacher: #008f45;
+  --bg-teacher: #f0fdf4;
+  
+  --primary-student: #6a7dd6;
+  --secondary-student: #5668c2;
+  --bg-student: #f5f3ff;
+  
+  --text-dark: #1a1a1a;
+  --text-muted: #666;
+  --border-color: #e5e7eb;
+}
+
+.signup-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+/* Left Side Redesign */
+.signup-left {
+  flex: 1.1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.teacher-theme .signup-left {
+  background: linear-gradient(135deg, #059669, #064e3b);
+}
+
+.student-theme .signup-left {
+  background: linear-gradient(135deg, #6366f1, #312e81);
+}
+
+.path-content {
+  max-width: 500px;
+  z-index: 2;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.logo-small {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 80px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.feature-list li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.stats-row {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 40px;
+}
+
+.stat h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* Right Side Form Redesign */
+.signup-right {
+  flex: 0.9;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 480px;
+  animation: slideUp 0.6s ease-out;
+}
+
+.role-switcher-top {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.link-btn.active {
+  color: var(--text-dark);
+  border-bottom: 2px solid var(--primary-student);
+}
+
+.teacher-theme .link-btn.active {
+  border-bottom-color: var(--primary-teacher);
+}
+
+.role-toggle-pill {
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 50px;
+  display: inline-flex;
+  margin-bottom: 32px;
+}
+
+.role-toggle-pill button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 50px;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--text-muted);
+}
+
+.student-theme .role-toggle-pill button.active {
+  background: var(--primary-student);
+  color: white;
+  box-shadow: 0 4px 12px rgba(106, 125, 214, 0.3);
+}
+
+.teacher-theme .role-toggle-pill button.active {
+  background: var(--primary-teacher);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 168, 84, 0.3);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+.modern-form .form-row {
+  margin-bottom: 20px;
+}
+
+.form-row.split {
+  display: flex;
+  gap: 16px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.input-group input {
+  padding: 12px 16px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.student-theme .input-group input:focus {
+  outline: none;
+  border-color: var(--primary-student);
+  box-shadow: 0 0 0 4px rgba(106, 125, 214, 0.1);
+}
+
+.teacher-theme .input-group input:focus {
+  outline: none;
+  border-color: var(--primary-teacher);
+  box-shadow: 0 0 0 4px rgba(0, 168, 84, 0.1);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.checkbox-group span {
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 24px;
+}
+
+.student-theme .submit-btn {
+  background: var(--primary-student);
+  color: white;
+}
+
+.teacher-theme .submit-btn {
+  background: var(--primary-teacher);
+  color: white;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.social-divider {
+  text-align: center;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.social-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.social-divider span {
+  background: white;
+  padding: 0 16px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 2;
+}
+
+.google-btn-premium {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.google-btn-premium:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.google-btn-premium img {
+  width: 20px;
+  height: 20px;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .signup-left { display: none; }
+  .signup-right { flex: 1; }
+}

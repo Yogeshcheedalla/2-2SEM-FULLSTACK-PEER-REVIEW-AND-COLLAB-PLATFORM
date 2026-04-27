@@ -1,0 +1,536 @@
+.teacher-dashboard {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.dashboard-header {
+  background-color: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background-color: #4285f4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.header-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #202124;
+  margin-bottom: 2px;
+}
+
+.header-title p {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.sign-out-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  color: #5f6368;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sign-out-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #c4c7c5;
+}
+
+.dashboard-main {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.assignments-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #202124;
+}
+
+.create-assignment-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-assignment-btn:hover {
+  background-color: #3367d6;
+}
+
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.assignment-card {
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.assignment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.assignment-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #202124;
+  margin-bottom: 4px;
+}
+
+.assignment-description {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 8px;
+}
+
+.due-date {
+  font-size: 13px;
+  color: #5f6368;
+}
+
+.assignment-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.max-score {
+  font-size: 14px;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.grade-btn {
+  padding: 8px 16px;
+  background-color: #34a853;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.grade-btn:hover {
+  background-color: #2d8f47;
+}
+
+.submissions-section {
+  border-top: 1px solid #e8eaed;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.submissions-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202124;
+  margin-bottom: 16px;
+}
+
+.no-submissions {
+  color: #5f6368;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.submission-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.student-name {
+  font-weight: 500;
+  color: #202124;
+}
+
+.submission-status {
+  font-size: 12px;
+  color: #34a853;
+}
+
+.grading-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #e8eaed;
+  padding-top: 12px;
+}
+
+.grade-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-score {
+  font-size: 14px;
+  font-weight: 500;
+  color: #34a853;
+}
+
+.ungraded {
+  font-size: 14px;
+  color: #ea4335;
+  font-weight: 500;
+}
+
+.score-input {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.score-input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.create-assignment-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #202124;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #5f6368;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e8eaed;
+}
+
+.cancel-btn {
+  padding: 10px 16px;
+  background-color: transparent;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.create-btn {
+  padding: 10px 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-btn:hover {
+  background-color: #3367d6;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 12px 16px;
+  }
+  
+  .header-left {
+    gap: 8px;
+  }
+  
+  .header-title h1 {
+    font-size: 18px;
+  }
+  
+  .dashboard-main {
+    padding: 16px;
+  }
+  
+  .assignments-section {
+    padding: 16px;
+  }
+  
+  .assignment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .assignment-meta {
+    align-items: flex-start;
+  }
+  
+  .submission-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .grading-section {
+    align-self: flex-end;
+  }
+  
+  .create-assignment-modal {
+    width: 95%;
+    margin: 20px;
+  }
+}
+.submit-grade-btn {
+  padding: 8px 16px;
+  background-color: #34a853;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-grade-btn:hover {
+  background-color: #2d8f47;
+}
+
+.submit-grade-btn:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.time-inputs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.time-separator {
+  font-weight: bold;
+  color: #5f6368;
+}
+
+/* File Upload Styles */
+.file-upload-area {
+  border: 2px dashed #dadce0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.file-upload-area:hover {
+  border-color: #4285f4;
+  background: #e8f0fe;
+}
+
+.file-placeholder {
+  color: #9aa0a6;
+  font-size: 14px;
+}
+
+.file-chosen {
+  color: #4285f4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.attachment-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #4285f4;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #e8f0fe;
+  margin-top: 6px;
+  transition: background 0.2s;
+}
+
+.attachment-link:hover {
+  background: #d2e3fc;
+}
+
+.remove-file-btn {
+  background: none;
+  border: none;
+  color: #ea4335;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 0;
+  margin-top: 4px;
+}
+
+.teacher-feedback-display {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: #fef9c3;
+  border-left: 3px solid #eab308;
+  border-radius: 4px;
+  font-size: 13px;
+}
