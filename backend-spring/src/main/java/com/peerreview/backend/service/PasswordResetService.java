@@ -44,8 +44,8 @@ public class PasswordResetService {
         // Delete any existing tokens for this user
         tokenRepository.deleteByUserId(user.getId());
 
-        // Create a new token valid for 30 minutes
-        String token = UUID.randomUUID().toString();
+        // Create a new 6-digit OTP valid for 30 minutes
+        String token = String.format("%06d", new java.util.Random().nextInt(999999));
         PasswordResetToken resetToken = PasswordResetToken.builder()
                 .token(token)
                 .user(user)
@@ -54,34 +54,32 @@ public class PasswordResetService {
         tokenRepository.save(resetToken);
 
         // Try to send email — log to console if mail not configured
-        String resetLink = "http://localhost:5173/reset-password?token=" + token;
         try {
             if (mailSender != null && !fromEmail.equals("not-configured") && !fromEmail.equals("your-email@gmail.com")) {
                 SimpleMailMessage message = new SimpleMailMessage();
                 message.setTo(email);
-                message.setSubject("PeerReview Platform — Password Reset");
+                message.setSubject("PeerReview Platform — Password Reset OTP");
                 message.setText(
                     "Hello " + user.getName() + ",\n\n" +
                     "You requested a password reset for your PeerReview Platform account.\n\n" +
-                    "Click the link below to reset your password (valid for 30 minutes):\n" +
-                    resetLink + "\n\n" +
+                    "Your One-Time Password (OTP) for verification is: " + token + "\n\n" +
+                    "(This OTP is valid for 30 minutes)\n\n" +
                     "If you did not request this, please ignore this email.\n\n" +
                     "— PeerReview Platform Team"
                 );
                 mailSender.send(message);
-                System.out.println("Password reset email sent to: " + email);
+                System.out.println("Password reset OTP email sent to: " + email);
             } else {
                 // Dev mode: print token to console
                 System.out.println("==============================================");
-                System.out.println(" PASSWORD RESET TOKEN (email not configured)");
+                System.out.println(" PASSWORD RESET OTP (email not configured)");
                 System.out.println(" Email: " + email);
-                System.out.println(" Token: " + token);
-                System.out.println(" Link:  " + resetLink);
+                System.out.println(" OTP:   " + token);
                 System.out.println("==============================================");
             }
         } catch (Exception e) {
             System.err.println("Email send failed: " + e.getMessage());
-            System.out.println("Reset token for " + email + ": " + token);
+            System.out.println("Reset OTP for " + email + ": " + token);
         }
 
         return token; // Return token so frontend can show it in dev mode
